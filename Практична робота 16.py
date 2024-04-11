@@ -1,6 +1,18 @@
 import random
+from faker import Faker
 
-list1 = [random.randint(1, 50) for _ in range(12)]
-list2 = [list1.pop(list1.index(min(list1))) for _ in range(len(list1))]
+# You need to write in cmd "pip install -r requirements.txt"
 
-print(list2)
+fake = Faker()
+
+list_name = [fake.name() for _ in range(10)]
+list_mark = [random.randint(1, 12) for _ in range(10)]
+
+for ind in range(len(list_mark)): print(f"{list_name[ind]} - {list_mark[ind]}")
+
+for i in range(100): print("-", end="")
+print()
+
+paired_list = sorted(list(zip(list_name, list_mark)))
+
+for ind in paired_list: print(f"{ind[0]} - {ind[1]}")
