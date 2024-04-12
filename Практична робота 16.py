@@ -1,18 +1,15 @@
 import random
-from faker import Faker
 
-# You need to write in cmd "pip install -r requirements.txt"
+list_of_random_numbers = []
 
-fake = Faker()
+ordered_list = []
 
-list_name = [fake.name() for _ in range(10)]
-list_mark = [random.randint(1, 12) for _ in range(10)]
 
-for ind in range(len(list_mark)): print(f"{list_name[ind]} - {list_mark[ind]}")
+for _ in range(12):
+    list_of_random_numbers.append(random.randint(1, 50))
 
-for i in range(100): print("-", end="")
-print()
+for _ in range(len(list_of_random_numbers)):
+    ordered_list = ordered_list + [min(list_of_random_numbers)]
+    list_of_random_numbers.remove(min(list_of_random_numbers))
 
-paired_list = sorted(list(zip(list_name, list_mark)))
-
-for ind in paired_list: print(f"{ind[0]} - {ind[1]}")
+print(ordered_list)
