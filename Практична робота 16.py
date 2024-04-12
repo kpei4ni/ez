@@ -1,15 +1,20 @@
-import random
+list_of_names = ["Анна", "Олексій", "Ірина",
+                 "Михайло", "Катерина", "Андрій",
+                 "Вікторія", "Олена", "Іван",
+                 "Марія"]
 
-list_of_random_numbers = []
+list_of_grades = [7, 3, 1, 9, 5, 2, 10, 6, 4, 8]
 
-ordered_list = []
+print("Список до сортування:")
+for i in range(len(list_of_names)): print(list_of_names[i], "-", list_of_grades[i])
 
+length = len(list_of_names)
 
-for _ in range(12):
-    list_of_random_numbers.append(random.randint(1, 50))
+combined_list = sorted(list(zip(list_of_names, list_of_grades)))
 
-for _ in range(len(list_of_random_numbers)):
-    ordered_list = ordered_list + [min(list_of_random_numbers)]
-    list_of_random_numbers.remove(min(list_of_random_numbers))
+print()
+print("Список після сортування:")
+print()
 
-print(ordered_list)
+for ind, val in combined_list:
+    print(f"{ind} - {val}")
